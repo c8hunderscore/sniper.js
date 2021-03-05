@@ -1,0 +1,48 @@
+// this is a commented version of the config.json file
+
+{
+	"logging": {
+		"console": {
+			"enabled": true, // boolean, whether to log to console
+			"style": true, // boolean, whether to add style to logged messages using ANSI escape codes (https://en.wikipedia.org/wiki/ANSI_escape_code)
+			"timestamp": false // boolean, whether to add a timestamp to logged messages (in console)
+		},
+		"file": {
+			"enabled": true, // boolean, whether to log to file
+			"timestamp": true, // boolean, whether to add a timestamp to logged messages (in file)
+			"path": "./log.txt" // string, path to log file relative to working directory
+		},
+		"events": { // which events to log, all booleans
+			"ws_open": true, // when a websocket connection is established
+			"ws_close": {
+				"invalid_token": true, // when a websocket is closed with code 4004 (failed to authenticate)
+				"other": true // when a websocket is closed with a code other than 4004
+			},
+			"ws_ready": true, // when a token recieves a READY message
+			"ws_message": {
+				"incoming": false, // when a websocket message is recieved (not recommended)
+				"outgoing": false // when a websocket message is sent (not recommended)
+			},
+			"nitro": {
+				"found": true, // when a message's content was matched using given regular expressions for a discord nitro code
+				"claimed": {
+					"invalid": true, // when a discord nitro code got claimed, but was invalid
+					"valid": true // when a discord nitro code got claimed, and is valid
+				}
+			}
+		},
+		"bell": true // whether to add a bell (0x07) to console message when a valid nitro code is claimed
+	},
+	"tokens": {
+		"paths": {
+			"slaves": "./tokens/slaves.txt", // string, path to tokens looking for nitro codes, relative to working directory
+			"owners": "./tokens/owners.txt" // string, path to tokens redeeming nitro codes, relative to working directory
+		},
+		"nitro_claims_before_switch": 1, // number, how many nitro codes an owner token should claim before moving onto the next, if you are only redeeming on one token, this doesn't matter
+		"reconnect": true // boolean, whether to reconnect after a token was disconnected from their websocket
+	},
+	"urls": { // it is not recommended to change these, but you may if you like, all strings
+		"api": "https://discord.com/api/v8", // discord api base url
+		"ws": "wss://gateway.discord.gg/?v=8&encoding=json" // discord gateway url
+	}
+}

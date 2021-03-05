@@ -1,0 +1,21 @@
+{
+	"name": "nitro-sniper",
+	"version": "1.0.0",
+	"description": "A Discord Nitro Sniper",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node src/index.js"
+	},
+	"keywords": [
+		"discord",
+		"nitro",
+		"sniper"
+	],
+	"author": "c8h_",
+	"license": "MIT",
+	"dependencies": {
+		"node-fetch": "^2.6.1",
+		"ws": "^7.4.3"
+	}
+}

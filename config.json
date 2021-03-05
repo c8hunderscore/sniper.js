@@ -1,0 +1,46 @@
+{
+	"logging": {
+		"console": {
+			"enabled": true,
+			"style": true,
+			"timestamp": false
+		},
+		"file": {
+			"enabled": true,
+			"timestamp": true,
+			"path": "./log.txt"
+		},
+		"events": {
+			"ws_open": true,
+			"ws_close": {
+				"invalid_token": true,
+				"other": true
+			},
+			"ws_ready": true,
+			"ws_message": {
+				"incoming": false,
+				"outgoing": true
+			},
+			"nitro": {
+				"found": true,
+				"claimed": {
+					"invalid": true,
+					"valid": true
+				}
+			}
+		},
+		"bell": true
+	},
+	"tokens": {
+		"paths": {
+			"slaves": "./tokens/slaves.txt",
+			"owners": "./tokens/owners.txt"
+		},
+		"nitro_claims_before_switch": 1,
+		"reconnect": true
+	},
+	"urls": {
+		"api": "https://discord.com/api/v8",
+		"ws": "wss://gateway.discord.gg/?v=8&encoding=json"
+	}
+}
